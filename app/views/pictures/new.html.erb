@@ -1,5 +1,19 @@
 <h1>Add a picture</h1>
 <%= link_to("Back to Pictures", "/pictures") %>
+
+<% if @picture.errors.any? %>
+  <div class="error-explanation">
+    <h3>There were <%= pluralize(@picture.errors.count, "error") %> in your entry:</h3>
+  </div>
+
+  <ul>
+    <% @picture.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+
+<% end %>
+
 <%= form_for(@picture) do |f| %>
   <p>
     <%= f.label :artist %><br>
