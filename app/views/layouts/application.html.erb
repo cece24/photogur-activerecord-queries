@@ -10,6 +10,7 @@
 
 <%= link_to "Home", root_url %> |
 
+
 <% if current_user %>
   <%= link_to "Log Out", sessions_path, method: :delete %>
   <p>Signed in as <%= current_user.email %></p>
@@ -18,7 +19,11 @@
   <%= link_to "Log In", new_sessions_path %>
 <% end %>
 
-
+<% if flash[:alert] %>
+  <% flash[:alert].each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
 
 <%= yield %>
 

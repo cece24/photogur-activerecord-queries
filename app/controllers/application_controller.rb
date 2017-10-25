@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
   def current_user
     session[:user_id] && User.find(session[:user_id])
   end
+
+  def ensure_logged_in
+    if !current_user
+      flash[:alert] = ["Please log in"]
+      redirect_to new_sessions_url
+    end
+  end
 end
