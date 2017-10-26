@@ -7,4 +7,7 @@ class Picture < ApplicationRecord
 
   belongs_to :user
 
+  def self.older_than_1_month
+    Picture.where("created_at < ?", Date.current.prev_month)
+  end
 end

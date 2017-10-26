@@ -5,3 +5,9 @@
   <p><%= picture.title %>, <%= picture.artist %></p>
   <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
 <% end %>
+
+<h2>Pictures Older Then 1 Month (<%= @pictures_older_than_1_month.length %>)</h2>
+<% @pictures_older_than_1_month.each do |picture| %>
+  <p><%= picture.title %>, <%= picture.artist %></p>
+  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+<% end %>
