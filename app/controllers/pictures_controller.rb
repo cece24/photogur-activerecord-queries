@@ -7,6 +7,9 @@ class PicturesController < ApplicationController
     @pictures = Picture.all
 
     @pictures_older_than_1_month = Picture.older_than_1_month
+
+    @pictures_2017 = Picture.pictures_created_in_year(2017)
+    @pictures_2016 = Picture.pictures_created_in_year(2016)
   end
 
   def show

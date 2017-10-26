@@ -11,3 +11,15 @@
   <p><%= picture.title %>, <%= picture.artist %></p>
   <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
 <% end %>
+
+<h2>Pictures from 2017 (<%= @pictures_2017.length %>)</h2>
+<% @pictures_2017.each do |picture| %>
+  <p><%= picture.title %>, <%= picture.artist %></p>
+  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+<% end %>
+
+<h2>Pictures from 2016 (<%= @pictures_2016.length %>)</h2>
+<% @pictures_2016.each do |picture| %>
+    <p><%= picture.title %>, <%= picture.artist %></p>
+    <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+<% end %>
